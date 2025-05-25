@@ -102,8 +102,8 @@ The dataset is based on the **Home Equity Line of Credit (HMEQ)** data, with the
 
 ## 🙋‍♂️ Author
 Harsh Gupta  
-Email: [your-email@example.com]  
-LinkedIn: [your-linkedin-profile]  
+Email: harshgupta4728@gmail.com 
+LinkedIn: https://www.linkedin.com/in/harshgupta4728/  
 
 ---
 
