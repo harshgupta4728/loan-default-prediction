@@ -1,47 +1,109 @@
-Loan-default-prediction
-Context
-A major proportion of retail bank profit comes from interests in the form of home loans. These loans are borrowed by regular income/high-earning customers. Banks are most fearful of defaulters, as bad loans (NPA) usually eat up a major chunk of their profits. Therefore, it is important for banks to be judicious while approving loans for their customer base.
+# Loan Default Prediction
 
-The approval process for the loans is multifaceted. Through this process, the bank tries to check the creditworthiness of the applicant on the basis of a manual study of various aspects of the application. The entire process is not only effort-intensive but also prone to wrong judgment/approval owing to human error and biases.
+## 🏦 Context
+A major portion of retail bank profits comes from home loans borrowed by regular or high-income customers. However, defaults (non-performing assets) can significantly affect bank profitability. The traditional manual loan approval process is time-consuming and subject to human error and bias. This project aims to automate and enhance the decision-making process using machine learning models that are fair, interpretable, and efficient.
 
-There have been attempts by many banks to automate this process by using heuristics. But with the advent of data science and machine learning, the focus has shifted to building machines that can learn this approval process and make it free of biases and more efficient. At the same time, one important thing to keep in mind is to make sure that the machine does not learn the biases that previously crept in because of the human approval process.
+---
 
-Problem Statement
-A bank's consumer credit department aims to simplify the decision-making process for home equity lines of credit to be accepted. To do this, they will adopt the Equal Credit Opportunity Act's guidelines to establish an empirically derived and statistically sound model for credit scoring. The model will be based on the data obtained via the existing loan underwriting process from recent applicants who have been given credit. The model will be built from predictive modeling techniques, but the model created must be interpretable enough to provide a justification for any adverse behavior (rejections).
+## 📌 Problem Statement
+A bank’s consumer credit department wants to develop a reliable credit scoring model to predict whether a loan applicant is likely to default. The model must:
+- Comply with Equal Credit Opportunity Act guidelines.
+- Be interpretable to explain decisions (especially rejections).
+- Be based on the historical performance of previously approved loans.
 
-Objective
-Build a classification model to predict clients who are likely to default on their loan and give recommendations to the bank on the important features to consider while approving a loan.
+---
 
-Data Dictionary
-The Home Equity dataset (HMEQ, source: Kaggle.com) contains baseline and loan performance information for recent home equity loans. The target (BAD) is a binary variable that indicates whether an applicant has ultimately defaulted or has been severely delinquent. There are 12 input variables registered for each applicant.
+## 🎯 Objective
+- Build a binary classification model that predicts whether a client will default (BAD = 1) or repay (BAD = 0).
+- Identify key features influencing default likelihood.
+- Recommend criteria to aid banks in making data-driven and fair lending decisions.
 
-● BAD: 1 = Client defaulted on loan, 0 = loan repaid
+---
 
-● LOAN: Amount of loan approved
+## 📂 Dataset Information
+The dataset is based on the **Home Equity Line of Credit (HMEQ)** data, with the following attributes:
 
-● MORTDUE: Amount due on the existing mortgage
+| Feature | Description |
+|---------|-------------|
+| BAD | Target variable (1 = defaulted, 0 = repaid) |
+| LOAN | Approved loan amount |
+| MORTDUE | Amount due on existing mortgage |
+| VALUE | Current value of the property |
+| REASON | Reason for the loan (HomeImp, DebtCon) |
+| JOB | Type of employment |
+| YOJ | Years at current job |
+| DEROG | Number of major derogatory reports |
+| DELINQ | Number of delinquent credit lines |
+| CLAGE | Age of oldest credit line |
+| NINQ | Number of recent credit inquiries |
+| CLNO | Number of existing credit lines |
+| DEBTINC | Debt-to-income ratio |
 
-● VALUE: Current value of the property
+---
 
-● REASON: Reason for the loan request (HomeImp = home improvement, DebtCon= debt consolidation which means taking out a new loan to pay off other liabilities and consumer debts)
+## 🧠 Models Used
+- Logistic Regression
+- Decision Tree (Baseline & Tuned)
+- Random Forest
 
-● JOB: The type of job that loan applicant has such as manager, self, etc.
+### ✅ Final Model: Tuned Decision Tree
+| Metric | Score |
+|--------|-------|
+| Accuracy | 0.86 |
+| Recall | 0.74 |
+| Precision | 0.62 |
 
-● YOJ: Years at present job
+> This model was selected due to its **high interpretability** and **strong recall**, making it effective at minimizing the number of defaulters misclassified as safe.
 
-● DEROG: Number of major derogatory reports (which indicates serious delinquency or late payments).
+---
 
-● DELINQ: Number of delinquent credit lines (a line of credit becomes delinquent when a borrower does not make the minimum required payments 30 to 60 days past the day on which the payments were due)
+## 🛠️ Tech Stack
+- Python
+- pandas, NumPy
+- matplotlib, seaborn
+- scikit-learn
 
-● CLAGE: Age of the oldest credit line in months
+---
 
-● NINQ: Number of recent credit inquiries
+## 📌 Key Steps
+1. **Data Cleaning & Preprocessing**
+   - Handling missing values
+   - Outlier detection
+   - Encoding categorical variables
+   - Feature scaling
 
-● CLNO: Number of existing credit lines
+2. **Exploratory Data Analysis (EDA)**
+   - Univariate & bivariate analysis
+   - Correlation heatmaps
+   - Boxplots & histograms
 
-● DEBTINC: Debt-to-income ratio (all monthly debt payments divided by gross monthly income. This number is one of the ways lenders measure a borrower’s ability to manage the monthly payments to repay the money they plan to borrow)
+3. **Model Building**
+   - Baseline and tuned models
+   - Evaluation using cross-validation
 
-Final results
-To solve this project I built 3 machine learning models: logistic regression, decision tree and random forest (baseline and tuned versions). The best performance was obtained by the tuned decision tree model: 0.86 accuracy, 0.74 recall and 0.62 precision.
+4. **Model Evaluation**
+   - Accuracy, Precision, Recall, F1-Score
+   - Confusion matrix analysis
 
-I chose this model due to its high interpretability and high recall that minimizes defaulters.
+---
+
+## 📈 Outcome
+- Built an effective credit risk model with a strong focus on reducing false negatives (defaulters predicted as safe).
+- Identified critical features like **Debt-to-Income Ratio, Job Type, Delinquency Count**, and **Credit Line Age** that influence loan defaults.
+
+---
+
+## 📝 Future Work
+- Integrate SHAP/ELI5 for advanced model interpretability.
+- Deploy model using Flask/Streamlit for real-time predictions.
+- Explore ensemble models like XGBoost or LightGBM.
+
+---
+
+## 🙋‍♂️ Author
+Harsh Gupta  
+Email: [your-email@example.com]  
+LinkedIn: [your-linkedin-profile]  
+
+---
+
